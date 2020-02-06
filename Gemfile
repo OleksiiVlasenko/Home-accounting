@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem "sinatra"
 gem "sqlite3"
-gem "sinata-activerecord"
-gem "sinata-contrib"
+gem "sinatra-activerecord"
+gem "sinatra-contrib"
 
 group :development do
 	gem "tux"
