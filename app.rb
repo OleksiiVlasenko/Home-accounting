@@ -5,6 +5,13 @@ require 'net/smtp'
 require 'sqlite3'
 require 'sinatra/activerecord'
 
+set :database, "sqlite3:home_accounting.db"
+
+class Home_accounting < ActiveRecord::Base
+
+end
+
+
 configure do
   enable :sessions
 end
