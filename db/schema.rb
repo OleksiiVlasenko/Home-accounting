@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_095400) do
   create_table "credit", force: :cascade do |t|
     t.text "user"
     t.integer "amount"
-    t.text "category_in"
+    t.text "category_debit"
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_095400) do
   create_table "debet", force: :cascade do |t|
     t.text "user"
     t.integer "amount"
-    t.text "category_in"
+    t.text "category_credit"
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
