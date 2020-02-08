@@ -22,13 +22,9 @@ configure do
 end
 
 get '/statistics' do
-  credit = Debit.all do |c|
 
     
-  end
-  debit = Debit.all do |d|
-    
-  end
+ 
   erb :statistics
 end
 
@@ -40,6 +36,8 @@ end
 post '/credit' do
  @credit = Credit.new :user=>session[:identity],:amount =>params['amount_credit'],:category_credit => params['type_credit'],:comment =>params['comment_credit']
   @credit.save
+  elements_name = Credit.new params[:element]
+  elements_name.save
   erb :statistics
 end
 
@@ -50,6 +48,8 @@ end
 post '/debit' do
   @debit = Debit.new :user=>session[:identity],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
   @debit.save
+  elements_name = Credit.new params[:element]
+  elements_name.save
   erb :statistics
 end
 

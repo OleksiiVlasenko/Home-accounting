@@ -1,11 +1,11 @@
 <form method="POST" action="\debit">
   <div class="form-group">
     <label for="exampleFormControlInput1">Сума доходу</label>
-    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="amount_debit">
+    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Стаття доходу</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="type_debit">
+    <select class="form-control" id="exampleFormControlSelect1" name="element[category_debit]">
       <option>Основна робота</option>
       <option>Підробітки</option>
       <option>Подарунки</option>
@@ -15,7 +15,7 @@
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Коментар</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment_debit"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="element[comment]"></textarea>
   </div>
 
   <div class="form-group">
