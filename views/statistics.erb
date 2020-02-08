@@ -1,0 +1,43 @@
+Прибуток
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Особа</th>
+      <th scope="col">Сума</th>
+      <th scope="col">Тип прибутку</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <%debit = Debit.all.each do |deb|%>
+      <th scope="row"><%=deb.id%></th>
+      <td><%=deb.user%></td>
+      <td><%=deb.amount%></td>
+      <td><%=deb.category_debit%></td>
+    </tr>
+   <%end%>
+  </tbody>
+</table>
+
+Витрати
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Особа</th>
+      <th scope="col">Сума</th>
+      <th scope="col">Тип витрат</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%credit = Credit.all.each do |cred|%>
+      <th scope="row"><%=cred.id%></th>
+      <td><%=cred.user%></td>
+      <td><%=cred.amount%></td>
+     <td><%=cred.category_credit%></td>
+    </tr>
+   <%end%>
+  </tbody>
+</table>

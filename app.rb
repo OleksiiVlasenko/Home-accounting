@@ -21,6 +21,16 @@ configure do
   enable :sessions
 end
 
+get '/statistics' do
+  credit = Debit.all do |c|
+
+    
+  end
+  debit = Debit.all do |d|
+    
+  end
+  erb :statistics
+end
 
 
 get '/credit' do
@@ -28,8 +38,9 @@ get '/credit' do
 end
 
 post '/credit' do
-  debit.create :user=>session[:identity],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
-  debit.save
+ @credit = Credit.new :user=>session[:identity],:amount =>params['amount_credit'],:category_credit => params['type_credit'],:comment =>params['comment_credit']
+  @credit.save
+  erb :statistics
 end
 
 get '/debit' do
@@ -37,7 +48,9 @@ get '/debit' do
 end
 
 post '/debit' do
-  "Hello World"
+  @debit = Debit.new :user=>session[:identity],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
+  @debit.save
+  erb :statistics
 end
 
 
@@ -54,8 +67,8 @@ helpers do
 end
 
 before '/secure/*' do
-  credit = Credit.new
-  debet = Debet.new
+  # @credit = Credit.new
+  # @debet = Debet.new
   unless session[:identity]
     session[:previous_url] = request.path
     @error = 'Sorry, you need to be logged in to visit ' + request.path
