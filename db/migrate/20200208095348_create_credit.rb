@@ -4,7 +4,7 @@ class CreateCredit < ActiveRecord::Migration[6.0]
   	t.text :user
   	t.integer :amount
   	t.text :category_credit
-
+  	t.text :date
     t.text :comment
 	end
 	

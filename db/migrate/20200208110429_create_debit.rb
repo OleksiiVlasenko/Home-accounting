@@ -4,7 +4,8 @@ class CreateDebit < ActiveRecord::Migration[6.0]
   	t.text :user
   	t.integer :amount
   	t.text :category_debit
-    	t.text :comment
+  	t.text :date
+    t.text :comment
 	end
 end
 end
