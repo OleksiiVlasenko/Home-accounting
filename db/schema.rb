@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_224926) do
+ActiveRecord::Schema.define(version: 2020_02_06_224557) do
 
   create_table "credit", force: :cascade do |t|
+    t.text "user"
     t.integer "amount"
     t.text "category_in"
     t.integer "total_amount"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_224926) do
   end
 
   create_table "debet", force: :cascade do |t|
+    t.text "user"
     t.integer "amount"
     t.text "category_in"
     t.integer "total_amount"
