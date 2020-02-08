@@ -7,6 +7,7 @@
       <th scope="col">Особа</th>
       <th scope="col">Сума</th>
       <th scope="col">Тип прибутку</th>
+      <th scope="col">Коментар</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td><%=deb.user%></td>
       <td><%=deb.amount%></td>
       <td><%=deb.category_debit%></td>
+      <td><%=deb.comment%></td>
     </tr>
    <%end%>
   </tbody>
@@ -29,6 +31,7 @@
       <th scope="col">Особа</th>
       <th scope="col">Сума</th>
       <th scope="col">Тип витрат</th>
+      <th scope="col">Коментар</th>
     </tr>
   </thead>
   <tbody>
@@ -37,6 +40,7 @@
       <td><%=cred.user%></td>
       <td><%=cred.amount%></td>
      <td><%=cred.category_credit%></td>
+     <td><%=cred.comment%></td>
     </tr>
    <%end%>
   </tbody>

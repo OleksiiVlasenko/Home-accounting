@@ -1,4 +1,7 @@
 <form method="POST" action="\credit">
+    <br>
+  <input class="form-control" type="text"  value="<%=session[:identity]%>" name="element[user]">
+  <%=params['amount']%></input>
   <div class="form-group">
     <label for="exampleFormControlInput1">Сума витрат</label>
     <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]">

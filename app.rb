@@ -34,10 +34,10 @@ get '/credit' do
 end
 
 post '/credit' do
- @credit = Credit.new :user=>session[:identity],:amount =>params['amount_credit'],:category_credit => params['type_credit'],:comment =>params['comment_credit']
-  @credit.save
-  elements_name = Credit.new params[:element]
-  elements_name.save
+
+  
+   credit = Credit.new params[:element]
+   credit.save
   erb :statistics
 end
 
@@ -46,10 +46,11 @@ get '/debit' do
 end
 
 post '/debit' do
-  @debit = Debit.new :user=>session[:identity],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
-  @debit.save
-  elements_name = Credit.new params[:element]
+  
+  elements_name = Debit.new params[:element]
   elements_name.save
+  @debit = Debit.new :user=>params['user'],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
+  @debit.save
   erb :statistics
 end
 
