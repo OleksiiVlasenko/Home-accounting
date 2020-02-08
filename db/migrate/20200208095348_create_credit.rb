@@ -1,6 +1,6 @@
 class CreateCredit < ActiveRecord::Migration[6.0]
   def change
-  	create_table :debet do |t|
+  	create_table :credits do |t|
   	t.text :user
   	t.integer :amount
   	t.text :category_credit
@@ -9,6 +9,6 @@ class CreateCredit < ActiveRecord::Migration[6.0]
   	t.integer :year_amount
     t.text :comment
 	end
-	# Debit.create :user => 'Alex'
+	
 end
 end
