@@ -8,7 +8,7 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:home_accounting.db"
 
-class Debet < ActiveRecord::Base
+class Debit < ActiveRecord::Base
 
 end
 
@@ -28,7 +28,8 @@ get '/credit' do
 end
 
 post '/credit' do
-  "Hello World"
+  debit.create :user=>session[:identity],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
+  debit.save
 end
 
 get '/debit' do
@@ -63,7 +64,7 @@ before '/secure/*' do
 end
 
 get '/' do
-  erb 'Can you handle a <a href="/secure/place">secret</a>?'
+  erb :statistics
 end
 
 get '/login/form' do
