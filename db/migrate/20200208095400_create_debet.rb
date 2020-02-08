@@ -7,7 +7,7 @@ class CreateDebet < ActiveRecord::Migration[6.0]
   	t.integer :total_amount
   	t.integer :month_amount
   	t.integer :year_amount
-  
+  	t.text :comment
 	end
 end
 end
