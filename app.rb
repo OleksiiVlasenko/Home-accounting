@@ -46,10 +46,8 @@ get '/debit' do
 end
 
 post '/debit' do
-  
-  elements_name = Debit.new params[:element]
-  elements_name.save
-  @debit = Debit.new :user=>params['user'],:amount =>params['amount_debit'],:category_debit => params['type_debit'],:comment =>params['comment_debit']
+
+  @debit = Debit.new params[:element]
   @debit.save
   erb :statistics
 end
@@ -68,8 +66,8 @@ helpers do
 end
 
 before '/secure/*' do
-  # @credit = Credit.new
-  # @debet = Debet.new
+   @credit = Credit.all
+   @debet = Debet.all
   unless session[:identity]
     session[:previous_url] = request.path
     @error = 'Sorry, you need to be logged in to visit ' + request.path
