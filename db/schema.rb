@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_110429) do
+ActiveRecord::Schema.define(version: 2020_02_08_115646) do
 
   create_table "credits", force: :cascade do |t|
     t.text "user"
     t.integer "amount"
     t.text "category_credit"
-    t.integer "total_amount"
-    t.integer "month_amount"
-    t.integer "year_amount"
     t.text "comment"
   end
 
@@ -30,6 +27,12 @@ ActiveRecord::Schema.define(version: 2020_02_08_110429) do
     t.integer "month_amount"
     t.integer "year_amount"
     t.text "comment"
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.integer "total_amount"
+    t.integer "month_amount"
+    t.integer "year_amount"
   end
 
 end
