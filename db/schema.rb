@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_095400) do
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
+    t.text "comment"
   end
 
   create_table "debet", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_095400) do
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
+    t.text "comment"
   end
 
 end
