@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_095400) do
+ActiveRecord::Schema.define(version: 2020_02_08_110429) do
 
-  create_table "credit", force: :cascade do |t|
+  create_table "credits", force: :cascade do |t|
     t.text "user"
     t.integer "amount"
-    t.text "category_debit"
+    t.text "category_credit"
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
     t.text "comment"
   end
 
-  create_table "debet", force: :cascade do |t|
+  create_table "debits", force: :cascade do |t|
     t.text "user"
     t.integer "amount"
-    t.text "category_credit"
+    t.text "category_debit"
     t.integer "total_amount"
     t.integer "month_amount"
     t.integer "year_amount"
