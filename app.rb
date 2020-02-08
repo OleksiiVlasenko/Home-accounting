@@ -7,10 +7,13 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:home_accounting.db"
 
-class Home_accounting < ActiveRecord::Base
+class Debet < ActiveRecord::Base
 
 end
 
+class Credit < ActiveRecord::Base
+
+end 
 
 configure do
   enable :sessions
