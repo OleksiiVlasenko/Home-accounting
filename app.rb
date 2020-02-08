@@ -1,3 +1,4 @@
+#encoding UTF-8
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -16,16 +17,44 @@ class Credit < ActiveRecord::Base
 end 
 
 configure do
+
   enable :sessions
 end
 
+
+
+get '/credit' do
+  erb :credit
+end
+
+post '/credit' do
+  "Hello World"
+end
+
+get '/debit' do
+  erb :debit
+end
+
+post '/debit' do
+  "Hello World"
+end
+
+
+
+
+
+
+
+
 helpers do
   def username
-    session[:identity] ? session[:identity] : 'Hello stranger'
+    session[:identity] ? session[:identity] : 'Авторизуйтесь!'
   end
 end
 
 before '/secure/*' do
+  credit = Credit.new
+  debet = Debet.new
   unless session[:identity]
     session[:previous_url] = request.path
     @error = 'Sorry, you need to be logged in to visit ' + request.path
