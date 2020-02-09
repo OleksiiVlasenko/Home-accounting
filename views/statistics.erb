@@ -7,16 +7,18 @@
       <th scope="col">Особа</th>
       <th scope="col">Сума</th>
       <th scope="col">Тип прибутку</th>
+      <th scope="col">Дата операції</th>
       <th scope="col">Коментар</th>
     </tr>
   </thead>
   <tbody>
     <tr>
     <%debit = Debit.all.each do |deb|%>
-      <th scope="row"><%=deb.id%></th>
+      <th scope="row"><a href="/info/<%=deb['id']%>"> <%=deb.id%></th>
       <td><%=deb.user%></td>
       <td><%=deb.amount%></td>
       <td><%=deb.category_debit%></td>
+      <td><%=deb.date%></td>
       <td><%=deb.comment%></td>
     </tr>
    <%end%>
@@ -31,6 +33,7 @@
       <th scope="col">Особа</th>
       <th scope="col">Сума</th>
       <th scope="col">Тип витрат</th>
+      <th scope="col">Дата операції</th>
       <th scope="col">Коментар</th>
     </tr>
   </thead>
@@ -40,6 +43,7 @@
       <td><%=cred.user%></td>
       <td><%=cred.amount%></td>
      <td><%=cred.category_credit%></td>
+     <td><%=cred.date%></td>
      <td><%=cred.comment%></td>
     </tr>
    <%end%>
