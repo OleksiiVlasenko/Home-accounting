@@ -1,6 +1,12 @@
+
 <form method="POST" action="\debit">
   <br>
   <input class="form-control" type="text"  value="<%=session[:identity]%>" name="element[user]" readonly>
+  <br>
+     <div class="form-group">
+    <label for="exampleFormControlInput1">Час операції</label>
+    <input type="text" class="form-control" id="datetimepicker" placeholder="Приблизний час" name="element[date]" value="<%=@c.date%>" required>
+  </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Сума доходу</label>
     <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]" value="<%=@c.amount%>" required>
@@ -24,3 +30,12 @@
   <button type="submit" class="btn btn-primary mb-2">Додати</button>
   </div>
 </form>
+
+<script type="text/javascript">
+  $(function (){
+  jQuery.datetimepicker.setLocale('uk');
+  $('#datetimepicker').datetimepicker();
+
+    
+  });
+</script>
