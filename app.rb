@@ -9,7 +9,11 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:home_accounting.db"
 
 class Debit < ActiveRecord::Base
-
+ validates :user, presence: true
+ validates :category_debit, presence: true
+ validates :amount, presence: true
+ validates :date, presence: true
+ validates :comment, presence: true
 end
 
 class Credit < ActiveRecord::Base
