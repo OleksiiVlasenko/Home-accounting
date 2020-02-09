@@ -11,7 +11,7 @@ set :database, "sqlite3:home_accounting.db"
 class Debit < ActiveRecord::Base
 validates :user, presence: true
 validates :category_debit, presence: true
-validates :amount, presence: true
+validates :amount, numericality: true
 validates :comment, presence: true
 end
 
@@ -45,18 +45,19 @@ post '/credit' do
 end
 
 get '/debit' do
+  @c = Debit.new
   erb :debit
 end
 
 post '/debit' do
 
-  c = Debit.new params[:element]
-  c.save
-  if c.save
+  @c = Debit.new params[:element]
+  @c.save
+  if @c.save
     @error = "Сохранение удачное!"
     erb :statistics
   else
-    @error = "Не сохранилось ошибка: #{c.errors.full_messages.first}"
+    @error = "Не сохранилось ошибка: #{@c.errors.full_messages.first}"
     erb :debit
   end
   
@@ -76,8 +77,8 @@ helpers do
 end
 
 before '/secure/*' do
-   @credit = Credit.all
-   @debet = Debet.all
+   # @credit = Credit.all
+   # @debit = Debet.all
   unless session[:identity]
     session[:previous_url] = request.path
     @error = 'Sorry, you need to be logged in to visit ' + request.path
