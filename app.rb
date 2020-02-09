@@ -9,11 +9,10 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:home_accounting.db"
 
 class Debit < ActiveRecord::Base
- validates :user, presence: true
- validates :category_debit, presence: true
- validates :amount, presence: true
- validates :date, presence: true
- validates :comment, presence: true
+validates :user, presence: true
+validates :category_debit, presence: true
+validates :amount, presence: true
+validates :comment, presence: true
 end
 
 class Credit < ActiveRecord::Base
@@ -51,9 +50,16 @@ end
 
 post '/debit' do
 
-  @debit = Debit.new params[:element]
-  @debit.save
-  erb :statistics
+  c = Debit.new params[:element]
+  c.save
+  if c.save
+    @error = "Сохранение удачное!"
+    erb :statistics
+  else
+    @error = "Не сохранилось ошибка: #{c.errors.full_messages.first}"
+    erb :debit
+  end
+  
 end
 
 
