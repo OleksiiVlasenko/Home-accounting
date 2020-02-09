@@ -1,0 +1,41 @@
+
+<form method="POST" action="/info">
+  <br>
+  <input class="form-control" type="text"  value="<%=session[:identity]%>" name="element[user]" readonly>
+  <br>
+     <div class="form-group">
+    <label for="exampleFormControlInput1">Час операції</label>
+    <input type="text" class="form-control" id="datetimepicker" placeholder="Приблизний час" name="element[date]" value="<%=@deb1.date%>" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Сума доходу</label>
+    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]" value="<%=@deb1.amount%>" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Стаття доходу</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="element[category_debit]" >
+      <option>Основна робота</option>
+      <option>Підробітки</option>
+      <option>Подарунки</option>
+ 
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Коментар</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="element[comment]" required><%=@deb1.comment%></textarea>
+  </div>
+
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary mb-2">Додати</button>
+  </div>
+</form>
+
+<script type="text/javascript">
+  $(function (){
+  jQuery.datetimepicker.setLocale('uk');
+  $('#datetimepicker').datetimepicker();
+
+    
+  });
+</script>
