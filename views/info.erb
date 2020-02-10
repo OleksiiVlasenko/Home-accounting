@@ -1,15 +1,15 @@
 
 <form method="POST" action="/info/<%=@deb.id%>">
   <br>
-  <input class="form-control" type="text"  value="<%=session[:identity]%>" name="element[user]" readonly>
+  <input class="form-control" type="text"  value="<%=@deb.user%>" name="element[user]" readonly>
   <br>
      <div class="form-group">
     <label for="exampleFormControlInput1">Час операції</label>
-    <input type="text" class="form-control" id="datetimepicker" placeholder="Приблизний час" name="element[date]" value="<%=@deb1.date%>" required>
+    <input type="text" class="form-control" id="datetimepicker" placeholder="Приблизний час" name="element[date]" value="<%=@deb.date%>" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Сума доходу</label>
-    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]" value="<%=@deb1.amount%>" required>
+    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="00.00" name="element[amount]" value="<%=@deb.amount%>" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Стаття доходу</label>
@@ -23,11 +23,11 @@
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Коментар</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="element[comment]" required><%=@deb1.comment%></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="element[comment]" required><%=@deb.comment%></textarea>
   </div>
 
   <div class="form-group">
-  <button type="submit" class="btn btn-primary mb-2">Додати</button>
+  <button type="submit" class="btn btn-primary mb-2">Оновити</button>
   </div>
 </form>
 
