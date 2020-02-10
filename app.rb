@@ -64,16 +64,17 @@ end
 
 get '/info/:id' do
    deb = Debit.all
-   @info_id = params[:id]
-   @deb1 = deb.find_by(params[:id])
-   @deb1.save
+   info_id = params[:id]
+   @deb1 = deb.find_by(id: "#{info_id}")
+   
   erb :info
 end
 
 
-post '/info' do
-   deb = Debit.all
-   @deb = deb.find_by(@info_id)
+post '/info/:id' do
+  deb = Debit.all
+    info_id = params[:id]
+   @deb = deb.find_by(id: "#{info_id}")
    @deb.update params[:element]
    @deb.save
   erb :info
